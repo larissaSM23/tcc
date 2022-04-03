@@ -1,0 +1,113 @@
+.bg-secondary-2{
+    background-color: #e4e4e4 !important;
+}
+.row > *{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+.circle{
+    background-color: #115D8C;
+    width: 20%;
+    height: 30%;
+    border-top-right-radius: 300%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+.triangle{
+    position: absolute;
+    z-index: -1;
+    width: 0; 
+    height: 0;
+    right: 0;
+    border-left: 240px solid transparent;
+    border-bottom: 270px solid #d99b96;
+    transform: skewY(-20deg);
+}
+
+.rounded-start{
+    border-bottom-left-radius: 1.25rem !important;
+    border-top-left-radius: 1.25rem !important;
+}
+.rounded-end{
+    border-bottom-right-radius: 1.25rem !important;
+    border-top-right-radius: 1.25rem !important;
+}
+
+/* INDEX 2 */
+
+.text-pink{
+    color: #d99b96 !important;
+}
+.bg-pink{
+    background-color: #d99b96 !important;
+}
+.link-underline-none{
+    text-decoration: none !important;
+}
+.btn-pink{
+    background-color: #d99b96 !important;
+    color: #fff;
+}
+.btn-pink-1{
+    background-color: #d99b96 !important;
+    border-color: #d99b96 !important;
+    color: #fff;
+}
+.btn-pink:hover , .btn-pink-1:hover{
+    background-color: rgba(44, 42, 42, 0.1) !important;
+}
+.circle-2{
+    position: absolute;
+    z-index: -1;
+    width: 20%; 
+    height: 30%;
+    right: 0;
+    background-color: #d99b96;
+    border-bottom-left-radius: 300%;
+
+}
+.triangle-2{
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: skewY(-20deg);
+    border-right: 240px solid transparent;
+    border-top: 270px solid #115D8C;
+    
+}
+.balao:hover{
+    float: left;
+    color:#fff;
+    background-color:#37688D;
+    border-top:10px solid #37688D;
+    border-left:10px solid transparent;
+    background-clip: padding-box;
+    padding: 0 10px 10px 10px;
+}
+
+/* MATERIA */
+
+.items-center {
+    margin: 0 auto;
+    width: 80%;
+    min-height: 100%;  
+    display: flex;
+    align-items: center;
+}
+
+.task{
+    width: 200px !important;
+    min-height: 250px !important;
+}
+
+/* ATIVIDADE2 */
+
+.border-pink{
+    border: solid 3px #d99b96  !important;
+    
+}
