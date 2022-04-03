@@ -1,6 +1,7 @@
 <?php
 $title = "Inserir Atividade";
 include('./components/head.php');
+include('./../model/database.php');
 ?>
 
 <body>
@@ -26,6 +27,25 @@ include('./components/head.php');
                                     </div>
                                 </div>
                             </div>
+
+                            <select name="disciplina" id="setor" class="form-control shadow-sm">
+                                    <option value="null">Selecione</option>
+                                    <?php
+                                       
+
+                                        $select = "select id,nome from tb_disciplina";
+                                        $query  = mysqli_query($connection, $select);
+                                        while($row = mysqli_fetch_array($query)) 
+                                        {
+                                    ?>
+                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['nome']; ?></option>
+                                    <?php
+                                        }
+                                    ?>
+                            </select>
+                            
+                                
+                           
                             
                             <div class="row g-2 my-5">
                                 <div class="col-md mx-4 mt-3">

@@ -14,6 +14,7 @@ $verify_query = mysqli_query($connection, $verify_select);
 if(mysqli_num_rows($verify_query) > 0){
     while($verify_row = mysqli_fetch_array($verify_query)){
         $id = $verify_row["id"]; 
+        echo $id;
     }
 
 $insert = "insert tb_disciplina (nome,imagem,chave_acesso,id_professor,acessou) values ('$nome','$imagem','$chave_acesso','$id','$acessou');";

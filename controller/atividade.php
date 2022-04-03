@@ -9,7 +9,7 @@ $op_b = $_POST['op_b'];
 $op_c = $_POST['op_c'];
 $op_d = $_POST['op_d'];
 $op_correta = $_POST['op_correta'];
-$id_disciplina = 1;
+$id_disciplina = $_POST['disciplina'];
 $titulo_imagem = ($_FILES['imagem']['name']);
 $extensao_imagem = ($_FILES['imagem']['type']);
 

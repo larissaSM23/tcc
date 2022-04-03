@@ -1,6 +1,7 @@
 <?php
 $title = "Gerenciar Atividades";
 include('./components/head.php');
+include('../model/database.php');
 ?>
 
 <body> 
@@ -14,56 +15,47 @@ include('./components/head.php');
                 <span class="fw-bold">Atividades existentes</span>
             </div>
 
-                <div class="m-2 rounded" style="background-color: #e4e4e4">
-                    <div class="py-3 mx-5">
-                        <span>Português</span>
-                        <a class="link-dark link-underline-none dropdown-toggle float-end h3" data-toggle="collapse" href="#" role="button" data-target="#disciplina"></a>
-                        <div class="collapse" id="disciplina">
-                            <div class="card card-body mt-3 bg-secondary-2">
-                            <table class="table">
-                        <tbody class="text-center">
-                            <tr class="border-bottom border-dark">
-                                <td>
-                                    <span>Exercicíos - substantivos</span>
-                                </td>
-                                <td>
-                                    <a href="#" class="link-dark link-underline-none float-end">Editar</a>
-                                </td>
-                                <td>
-                                    <a href="#" class="link-dark link-underline-none">Excluir</a>
-                                </td>
-                            </tr>
-                            <tr class="border-bottom border-dark">
-                                <td>
-                                    <span>Exercicíos - adjetivos</span>
-                                </td>
-                                <td>
-                                    <a href="#" class="link-dark link-underline-none float-end">Editar</a>
-                                </td>
-                                <td>
-                                    <a href="#" class="link-dark link-underline-none">Excluir</a>
-                                </td>
-                            </tr>
-                            <tr class="border-bottom border-dark">
-                                <td>
-                                    <span>Troque as palavras por um adjetivo</span>
-                                </td>
-                                <td>
-                                    <a href="#" class="link-dark link-underline-none float-end">Editar</a>
-                                </td>
-                                <td>
-                                    <a href="#" class="link-dark link-underline-none">Excluir</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                            </div>
-                        </div>
-                    </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Enunciado
+                        </th>
+                        <th>
+                            Opção correta
+                        </th>
+                        <th>
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    
+                    <?php
+                                        
 
-                </div>
+                        $select = "select id,nome,enunciado,op_correta from tb_atividade";
+                        $query  = mysqli_query($connection, $select);
+                        while($row = mysqli_fetch_array($query)) 
+                        {
+                            $id = $row["id"];
+                            echo "<tr>";
+                            echo "<th>".$row['nome']."</th>";
+                            echo "<th>".$row['enunciado']."</th>"; 
+                            echo "<th>".$row['op_correta']."</th>";   
+                            echo "<th><a href='../controller/editaAtividade.php?id=$id'>Editar</a><a href='../controller/excluiAtividade.php?id=$id'>Excluir</a></th>";    
+                            echo "</tr>";          
+                        }
+                    ?>
+                </tbody>
+                
+            </table>
                 <div class="text-center my-4">
-                    <a href="{{ route('disciplina.create') }}" class="btn btn-pink rounded px-5" role="button" data-bs-toggle="button">Adicionar Atividade</a>
+                    <a href="./adicionaAtividade." class="btn btn-pink rounded px-5" role="button" data-bs-toggle="button">Adicionar Atividade</a>
                 </div>
             </div>
         </div>
