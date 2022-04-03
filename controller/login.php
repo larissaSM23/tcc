@@ -32,10 +32,12 @@
 
         while($linha = mysqli_fetch_assoc($aluno_query)){
             $usuario = $linha['nome'];
+            $id = $linha['id'];
         }
 
         $_SESSION['session'] = $usuario;
         $_SESSION['status'] = 'aluno';
+        $_SESSION['id'] = $id;
         header('Location: ../view/visaoGeral');
         exit();
         

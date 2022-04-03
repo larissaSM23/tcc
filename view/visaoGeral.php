@@ -28,7 +28,7 @@ include('./components/head.php');
                     <img src="../public/img/materiaPT.jpg" class="card-img-top" height=200px width=20%>
                     <div class="card-body">
                         <h5 class="card-title text-center mb-5 fw-bold">Português</h5>
-                        <a href="#" id="visao-geral-2" class="d-flex justify-content-center btn btn-primary fw-bold border-white" style="background-color: #115D8C" data-content="Clique aqui para acessar a disciplina" rel="popover" data-placement="left" data-trigger="hover">Acessar</a>
+                        <a href="menuDisciplina" id="visao-geral-2" class="d-flex justify-content-center btn btn-primary fw-bold border-white" style="background-color: #115D8C" data-content="Clique aqui para acessar a disciplina" rel="popover" data-placement="left" data-trigger="hover">Acessar</a>
                     </div>
                 </div>
             </div>

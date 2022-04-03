@@ -1,6 +1,7 @@
 <?php
 $title = "Gerencia Disciplinas";
 include('./components/head.php');
+include('../model/database.php');
 ?>
 
 <body>

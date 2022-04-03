@@ -47,7 +47,7 @@ include('../model/database.php');
                             echo "<th>".$row['nome']."</th>";
                             echo "<th>".$row['enunciado']."</th>"; 
                             echo "<th>".$row['op_correta']."</th>";   
-                            echo "<th><a href='../controller/editaAtividade.php?id=$id'>Editar</a><a href='../controller/excluiAtividade.php?id=$id'>Excluir</a></th>";    
+                            echo "<th><a class='mx-1' href='../controller/editaAtividade.php?id=$id'>Editar</a><a href='../controller/excluiAtividade.php?id=$id'>Excluir</a></th>";    
                             echo "</tr>";          
                         }
                     ?>

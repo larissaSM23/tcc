@@ -1,6 +1,7 @@
 <?php
 $title = "Notas";
 include('./components/head.php');
+include('../model/database.php');
 ?>
 
 <body>
@@ -8,64 +9,45 @@ include('./components/head.php');
     include('./components/nav.php')
     ?>
 <div class="container d-flex flex-column min-vh-100 justify-content-center">
+    <?php
+    $resposta_select ="select a.nome as nome,b.op_aluno as op_aluno,c.op_correta as op_correta, c.nome as titulo from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id;";
+    $query  = mysqli_query($connection, $resposta_select);
+    ?>
     <div>
         <table class="table text-center">      
+            
+            
             <tr class="border-pink">
-                    
-                    <th class="col"></th>
-                    <th class="col">Item</th>
-                    <th class="col">Nota</th>
-                    
+                
+                <th class="col"></th>
+                <th class="col">Item</th>
+                <th class="col">Nota</th>
+                
             </tr>
             
             <tbody class="text-center">
+                <?php while($linha = mysqli_fetch_array($query)){
+                    $op_aluno = $linha['op_aluno'];
+                    $op_atividade = $linha['op_correta'];
+                    $titulo = $linha['titulo'];
+                ?>
+
                 <tr>
                     <td class="border-0">
                         <i class="bi bi-file-earmark-text rounded-circle p-2 bg-pink text-primary"></i>
                     </td>
                     <td class="border-0">
-                        <p class="d-inline-block">Exercicíos sobre os substantivos</p>
+                        <p class="d-inline-block"><?php echo $titulo; ?></p>
                     </td>
                     <td class="border-0">
+                        <?php if($op_aluno == $op_atividade){ ?>
                         <p class="mx-5 d-inline-block" id="notas-1" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">10/10</p>
+                            <?php } else { ?>
+                                <p class="mx-5 d-inline-block" id="notas-1" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
+                            <?php } ?>
                     </td>
                 </tr>
-
-                <tr>
-                    <td class="border-0">
-                        <i class="bi bi-file-earmark-text rounded-circle p-2 bg-pink text-primary"></i>
-                    </td>
-                    <td class="border-0">
-                        <p class="mx-5 d-inline-block">Complete o texto preenchendo as lacunas</p>
-                    </td>
-                    <td class="border-0">
-                        <p class="mx-5 d-inline-block" id="notas-2" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="border-0">
-                        <i class="bi bi-file-earmark-text rounded-circle p-2 bg-pink text-primary"></i>
-                    </td>
-                    <td class="border-0">
-                        <p class="mx-5 d-inline-block">Troque as palavras sublinhadas por um adjetivo</p>
-                    </td>
-                    <td class="border-0">
-                        <p class="mx-5 d-inline-block" id="notas-3" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">10/10</p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="border-0">
-                        <i class="bi bi-file-earmark-text rounded-circle p-2 bg-pink text-primary"></i>
-                    </td>
-                    <td class="border-0">
-                        <p class="mx-5 d-inline-block">Exercícios sobre adjetivos</p>
-                    </td>
-                    <td class="border-0">
-                        <p class="mx-5 d-inline-block" id="notas-4" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
-                    </td>
-                </tr>
+<?php } ?>
             </tbody>
         </table>
     </div>
