@@ -20,7 +20,7 @@ include('../model/database.php');
             <ul class="list-group list-group-flush">
                 <li class="list-group-item border-0 mb-3">
                     <a href="resolucaoAtividade?id=<?php echo $id_atividade; ?>" class="link-dark link-underline-none">
-                        <i class="bi bi-skip-end-fill rounded-circle p-2 bg-pink text-primary"></i>
+                        <i class="bi bi-file-earmark-text rounded-circle p-2 bg-pink text-primary"></i>
                         <p class="mx-5 d-inline-block" id="menu-disciplina-<?php echo $id_atividade; ?>" data-content="Clique aqui para acessar o video" rel="popover" data-placement="right" data-trigger="hover"><?php echo $titulo_atividade; ?></p>
                     </a>
                 </li>

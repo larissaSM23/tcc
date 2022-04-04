@@ -51,6 +51,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
                                     </div>
                                 </div>
                                 <div class="col-md mx-4">
+                                    <input type="text" name="id_usuario_disciplina" value="<?php echo $id; ?>" style="display: none;">
                                     <div class="form-floating">
                                     </div>
                                 </div>
@@ -73,18 +74,18 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
 </body>
 
 <?php
-include('../model/database.php');
+
 
 $nome = $_POST['nome_disciplina'];
 $foto = ($_FILES['imagem_disciplina']);
 $chave_acesso = $_POST['chave_acesso'];
 $id_admin = $_SESSION['cpf'];
+$id_usuario_disciplina = $_POST['id_usuario_disciplina'];
 $acessou = null;
 
 $verify_select = "select id from tb_admin where cpf = '$id_admin'";
 $verify_query = mysqli_query($connection, $verify_select);
 
-print_r(mysqli_num_rows($verify_query));
 if (mysqli_num_rows($verify_query) > 0) {
     while ($verify_row = mysqli_fetch_array($verify_query)) {
         $id = $verify_row["id"];
@@ -100,8 +101,7 @@ if (mysqli_num_rows($verify_query) > 0) {
     // Faz o upload da imagem para seu respectivo caminho
     move_uploaded_file($foto["tmp_name"], $caminho_imagem);
 
-    $update = "UPDATE tb_disciplina SET nome = '$nome', imagem = '$nome_imagem', chave_acesso = '$chave_acesso', WHERE id = '$id';";
-
+    $update = "UPDATE tb_disciplina SET nome = '$nome', imagem = '$nome_imagem', chave_acesso = '$chave_acesso' WHERE id = '$id_usuario_disciplina';";
     $query = mysqli_query($connection, $update);
 
     header('location: ../view/gerenciaDisciplina');
