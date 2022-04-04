@@ -5,8 +5,8 @@
     $email = $_POST['email'];
     $senha     = $_POST['senha'];
     
-    $admin_select       = "select id,nome from tb_admin where email = '$email' and senha = md5('$senha')";
-    $aluno_select       = "select id,nome from tb_aluno where email = '$email' and senha = md5('$senha')";
+    $admin_select       = "select id,nome,cpf from tb_admin where email = '$email' and senha = md5('$senha')";
+    $aluno_select       = "select id,nome,cpf from tb_aluno where email = '$email' and senha = md5('$senha')";
     $professor_select   = "select id,nome,cpf from tb_professor where email = '$email' and senha = md5('$senha')";
     $responsavel_select = "select id,nome,cpf from tb_responsavel where email = '$email' and senha = md5('$senha')";
 
@@ -21,10 +21,14 @@
 
         while($linha = mysqli_fetch_assoc($adm_query)){
             $usuario = $linha['nome'];
+            $id = $linha['id'];
+            $cpf = $linha['cpf'];
         }
 
         $_SESSION['session'] = $usuario;
         $_SESSION['status'] = 'admin';
+        $_SESSION['id'] = $id;
+        $_SESSION['cpf'] = $cpf;
         header('Location: ../view/VisaoGeral');
         exit();
         
@@ -33,11 +37,13 @@
         while($linha = mysqli_fetch_assoc($aluno_query)){
             $usuario = $linha['nome'];
             $id = $linha['id'];
+            $cpf = $linha['cpf'];
         }
 
         $_SESSION['session'] = $usuario;
         $_SESSION['status'] = 'aluno';
         $_SESSION['id'] = $id;
+        $_SESSION['cpf'] = $cpf;
         header('Location: ../view/visaoGeral');
         exit();
         

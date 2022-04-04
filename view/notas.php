@@ -10,8 +10,14 @@ include('../model/database.php');
     ?>
 <div class="container d-flex flex-column min-vh-100 justify-content-center">
     <?php
-    $resposta_select ="select a.nome as nome,b.op_aluno as op_aluno,c.op_correta as op_correta, c.nome as titulo from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id;";
+    $id_sessao = $_SESSION['id'];
+    $resposta_select ="select a.nome as nome,b.op_aluno as op_aluno,c.op_correta as op_correta, c.nome as titulo from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id and a.id='$id_sessao';";
     $query  = mysqli_query($connection, $resposta_select);
+    while($linha = mysqli_fetch_array($query)){
+        $op_aluno = $linha['nome'];
+    }
+    
+    if(isset($op_aluno)){
     ?>
     <div>
         <table class="table text-center">      
@@ -24,7 +30,10 @@ include('../model/database.php');
                 <th class="col">Nota</th>
                 
             </tr>
-            
+    <?php }else{
+        echo "Opa, parece que não temos nada aqui";
+
+    } ?>
             <tbody class="text-center">
                 <?php while($linha = mysqli_fetch_array($query)){
                     $op_aluno = $linha['op_aluno'];
@@ -47,14 +56,14 @@ include('../model/database.php');
                             <?php } ?>
                     </td>
                 </tr>
-<?php } ?>
+                <?php } ?>
             </tbody>
         </table>
     </div>
 </div>
 
 
-<?php
+<?php {}
 include('./components/scripts.php');
 ?>
 

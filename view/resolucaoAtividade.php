@@ -14,8 +14,9 @@ include('../model/database.php');
     </div>
 
     <?php
-        $id_pagina = (isset($_GET['id']));
-        $select = "select id,nome,enunciado,op_a,op_b,op_c,op_d,op_correta from tb_atividade";
+        if(isset($_GET['id'])){
+            $id_pagina = ($_GET['id']);
+        $select = "select id,nome,enunciado,op_a,op_b,op_c,op_d,op_correta,titulo_imagem from tb_atividade ";
         $query  = mysqli_query($connection, $select);
     ?>
         
@@ -29,6 +30,7 @@ include('../model/database.php');
         $op_b = $row['op_b'];
         $op_c = $row['op_c'];
         $op_d = $row['op_d'];
+        $foto = $row['titulo_imagem'];
 
         if($id == $id_pagina){
     ?>
@@ -36,7 +38,7 @@ include('../model/database.php');
         <div class="rounded p-4 mb-3 mx-2" style="background-color: #e4e4e4">
             <div class="row">
                 <div class="col-5 mx-4">
-                    <img src="../public/img/atividade1.PNG" style="width:90%; min-height:auto;">
+                <img src="../public/img/<?php echo $foto; ?>" style="width:90%; min-height:auto;">
                 </div>
                     
                 <div class="col">
@@ -46,19 +48,19 @@ include('../model/database.php');
                     
                     <div id="atividade-<?php $id_pagina?>" data-content="Clique em uma bolinha para marcar sua resposta" rel="popover" data-placement="right" data-trigger="hover">
                         <div class="form-check py-2">
-                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input">
+                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input" value="1">
                             <label for="option-<?php $id ?>" class="form-check-label" style="font-size:20px;"><?php echo $op_a;?></label>
                         </div>
                         <div class="form-check py-2">
-                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input">
+                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input" value="2">
                             <label for="option-<?php $id ?>" class="form-check-label"style="font-size:20px;"><?php echo $op_b;?></label>
                         </div>
                         <div class="form-check py-2">
-                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input">
+                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input" value="3">
                             <label for="option-<?php $id ?>" class="form-check-label"style="font-size:20px;"><?php echo $op_c;?></label>
                         </div>
                         <div class="form-check py-2">
-                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input">
+                            <input type="radio" name="op_aluno" id="option-<?php $id ?>" class="form-check-input" value="4">
                             <label for="option-<?php $id ?>" class="form-check-label"style="font-size:20px;"><?php echo $op_d;?></label>
                         </div>
                     </div>
@@ -74,7 +76,9 @@ include('../model/database.php');
     </form>
     <?php }else{?>
 
-    <?php } }?>
+    <?php } } }else{
+        echo 'Nenhum Registro encontrado';}
+        ?>
 </div>
 <?php
 include('./components/scripts.php');

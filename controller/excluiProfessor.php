@@ -4,10 +4,8 @@ include("../model/database.php");
 
 $id = $_GET['id'];
 
-$delete = "delete from tb_atividade where id = '$id'";
+$delete = "delete from tb_professor where id = '$id'";
 
 $query = mysqli_query($connection, $delete);
 
-header("location: ../view/gerenciaAtividade.php");
-
-?>
+header("location: ../view/gerenciaUsuario.php");

@@ -14,7 +14,7 @@ include('./components/head.php');
                 <span class="fw-bold">Cadastrar Aluno</span>
             </div>
             <?php include('.././controller/alunoDisciplina.php') ?>
-            <form action="insira_link_aqui" method="post" class="form-floating">
+            <form action="../controller/cadastrarAlunoDisciplina.php" method="post" class="form-floating">
                 <div class="m-2">
                     <div class="row g-2 mb-5">
                         <div class="col-md mx-4">
@@ -22,7 +22,7 @@ include('./components/head.php');
                                 <select class="form-select border-0 border-bottom border-secondary" name="aluno_matricula" id="aluno_matricula">
                                     <?php
                                     while($linha = mysqli_fetch_array($aluno_query)){?>
-                                        <option value="<?php $linha['id']; ?>"><?php echo $linha['matricula']; ?></option>
+                                        <option value="<?php echo $linha['id_aluno']; ?>"><?php echo $linha['matricula']; ?></option>
                                     <?php } ?>
                                     ?>
                                 </select>
@@ -35,7 +35,7 @@ include('./components/head.php');
                                 <select class="form-select border-0 border-bottom border-secondary" name="aluno_disciplina" id="aluno_disciplina">
                                 <?php
                                 while($linha2 = mysqli_fetch_assoc($disciplina_query)){?>
-                                    <option value="<?php $linha2['id'] ?>"><?php echo $linha2['nome']; ?></option>
+                                    <option value="<?php echo $linha2['id_disciplina'] ?>"><?php echo $linha2['nome']; ?></option>
                                 <?php } ?>
                                 </select>
                                 <label for="aluno_disciplina">Disciplinas</label>

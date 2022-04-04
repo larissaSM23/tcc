@@ -23,7 +23,7 @@ if($_POST['tipo'] == 'a'){
         
         $query = mysqli_query($connection, $insert);
         
-        header("location: ../view/adicionaUsuario");
+        header("location: ../view/gerenciaUsuario");
         
     }else{
         echo 'Reponsável não cadastrado';
@@ -41,7 +41,7 @@ if($_POST['tipo'] == 'a'){
 
     $query = mysqli_query($connection, $insert);
 
-    header("location: ../view/adicionaUsuario");
+    header("location: ../view/gerenciaUsuario");
     
 
 }else if($_POST['tipo'] == 'r'){
@@ -55,7 +55,7 @@ if($_POST['tipo'] == 'a'){
 
     $query = mysqli_query($connection, $insert);
 
-    header("location: ../view/adicionaUsuario");
+    header("location: ../view/gerenciaUsuario");
 
 }else if($_POST['tipo'] == 'adm'){
 
@@ -68,7 +68,7 @@ if($_POST['tipo'] == 'a'){
 
     $query = mysqli_query($connection, $insert);
     
-    header("location: ../view/adicionaUsuario");
+    header("location: ../view/gerenciaUsuario");
 
 }
 

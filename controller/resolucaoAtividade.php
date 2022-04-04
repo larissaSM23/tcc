@@ -9,6 +9,6 @@ $id_atividade = $_POST['id_atividade'];
 $insert = "insert tb_aluno_atividade (op_aluno,id_aluno,id_atividade) values ('$op_aluno','$id_aluno','$id_atividade');";
 
 $query = mysqli_query($connection, $insert);
-
+print_r($insert);
 header("location: ../view/menuDisciplina");
 ?>
