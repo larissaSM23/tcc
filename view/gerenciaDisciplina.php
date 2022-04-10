@@ -2,12 +2,19 @@
 $title = "Gerencia Disciplinas";
 include('./components/head.php');
 include('../model/database.php');
+session_start();
 ?>
 
 <body>
     <?php
     include('./components/nav.php');
     include('../model/database.php');
+
+    if($_SESSION['status'] == 'aluno' || 'professor'){
+        header('Location: visaoGeral');
+    } elseif($_SESSION['status'] == 'responsavel'){
+        header('Location: alunosVinculados');
+    }
     ?>
     <div class="container d-flex flex-column min-vh-100 justify-content-center">
         <div>

@@ -2,6 +2,7 @@
 $title = "Resolver Atividade";
 include('./components/head.php');
 include('../model/database.php');
+session_start();
 ?>
 
 <body>

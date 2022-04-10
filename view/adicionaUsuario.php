@@ -1,6 +1,7 @@
 <?php
 $title = "Inserir Usuário";
 include('./components/head.php');
+session_start();
 ?>
 
 <body>

@@ -2,12 +2,20 @@
 $title = "Gerencia Usuários";
 include('./components/head.php');
 include('../model/database.php');
+session_start();
 ?>
 
 <body>
     <?php
-    include('./components/nav.php')
+    include('./components/nav.php');
+
+    if($_SESSION['status'] == 'aluno' || 'professor'){
+        header('Location: visaoGeral');
+    } elseif($_SESSION['status'] == 'responsavel'){
+        header('Location: alunosVinculados');
+    }
     ?>
+
     <div class="container d-flex flex-column min-vh-100 justify-content-center">
         <div>
             <div class="container d-flex flex-column min-vh-100 justify-content-center">
@@ -171,6 +179,7 @@ include('../model/database.php');
         </div>
     </div>
     <?php
-    include('./components/scripts.php');
+        include('./components/scripts.php');
     ?>
+
 </body>

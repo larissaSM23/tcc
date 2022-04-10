@@ -2,6 +2,7 @@
 $title = "Histórico de Atividades";
 include('./components/head.php');
 include('../model/database.php');
+session_start();
 ?>
 
 <body>

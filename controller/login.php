@@ -32,7 +32,7 @@
         header('Location: ../view/VisaoGeral');
         exit();
         
-    }else if(mysqli_num_rows($aluno_query) > 0){
+    } else if(mysqli_num_rows($aluno_query) > 0){
 
         while($linha = mysqli_fetch_assoc($aluno_query)){
             $usuario = $linha['nome'];
@@ -47,20 +47,23 @@
         header('Location: ../view/visaoGeral');
         exit();
         
-    }else if(mysqli_num_rows($professor_query) > 0){
+    } else if(mysqli_num_rows($professor_query) > 0){
 
         while($linha = mysqli_fetch_assoc($professor_query)){
             $usuario = $linha['nome'];
             $cpf = $linha['cpf'];
+            $id = $linha['id'];
+
         }
 
         $_SESSION['session'] = $usuario;
         $_SESSION['status'] = 'professor';
         $_SESSION['cpf'] = $cpf;
+        $_SESSION['id'] = $id;
         header('Location: ../view/visaoGeral');
         exit();
         
-    }else if(mysqli_num_rows($responsavel_query) > 0){
+    } else if(mysqli_num_rows($responsavel_query) > 0){
 
         while($linha = mysqli_fetch_assoc($responsavel_query)){
             $usuario = $linha['nome'];
@@ -75,11 +78,7 @@
         header('Location: ../view/alunosVinculados');
         exit();
         
-    }
-    
-    
-    
-    else{
+    } else{
         echo '<script>
         alert("Dados de login incorretos");
         window.location.href="../view/login?erro";

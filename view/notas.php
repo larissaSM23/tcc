@@ -2,6 +2,7 @@
 $title = "Notas";
 include('./components/head.php');
 include('../model/database.php');
+session_start();
 ?>
 
 <body>
@@ -12,6 +13,7 @@ include('../model/database.php');
     <?php
     $id_sessao = $_SESSION['id'];
     $resposta_select ="select a.nome as nome,b.op_aluno as op_aluno,c.op_correta as op_correta, c.nome as titulo from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id and a.id='$id_sessao';";
+    $query1  = mysqli_query($connection, $resposta_select);
     $query  = mysqli_query($connection, $resposta_select);
     while($linha = mysqli_fetch_array($query)){
         $op_aluno = $linha['nome'];
@@ -35,7 +37,7 @@ include('../model/database.php');
 
     } ?>
             <tbody class="text-center">
-                <?php while($linha = mysqli_fetch_array($query)){
+                <?php while($linha = mysqli_fetch_array($query1)){
                     $op_aluno = $linha['op_aluno'];
                     $op_atividade = $linha['op_correta'];
                     $titulo = $linha['titulo'];

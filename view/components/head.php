@@ -8,4 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../public/css/style.css">
         <title><?php echo $title; ?></title>
+
+        <link rel="shortcut icon" href="../public/img/logoSite.ico">
+    
     </head>

@@ -1,6 +1,7 @@
 <?php
 $title = "Alunos Vinculados";
 include('./components/head.php');
+session_start();
 ?>
 
 <body>

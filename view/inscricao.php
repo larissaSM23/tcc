@@ -2,6 +2,7 @@
 $title = "Inscrição na Disciplina";
 include('./components/head.php');
 include('../model/database.php');
+session_start();
 ?>
 
 <body>

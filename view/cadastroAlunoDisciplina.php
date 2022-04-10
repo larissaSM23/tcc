@@ -1,6 +1,7 @@
 <?php
 $title = "Cadastrar Aluno em Disciplina";
 include('./components/head.php');
+session_start();
 ?>
 
 <body>
