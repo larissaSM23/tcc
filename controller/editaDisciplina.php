@@ -2,6 +2,7 @@
 $title = "Editar Disciplina";
 include('../view/components/head.php');
 include("../model/database.php");
+session_start();
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 ?>
 
@@ -60,7 +61,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
                         </div>
 
                         <div class="text-center my-4">
-                            <button type="submit" class="btn btn-primary rounded px-5 my-3" style="background-color: #115D8C; border-color: #115D8C">Adicionar</button>
+                            <button type="submit" name="salvar" class="btn btn-primary rounded px-5 my-3" style="background-color: #115D8C; border-color: #115D8C">Adicionar</button>
                         </div>
                     </form>
                 <?php } ?>
@@ -68,13 +69,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
         </div>
     </div>
 
-    <?php
-    include('../view/components/scripts.php');
-    ?>
+
 </body>
 
 <?php
-
+if (isset($_POST['salvar'])) {
 
 $nome = $_POST['nome_disciplina'];
 $foto = ($_FILES['imagem_disciplina']);
@@ -108,5 +107,5 @@ if (mysqli_num_rows($verify_query) > 0) {
 } else {
     echo 'Professor não encontrado';
 }
-
+}
 ?>

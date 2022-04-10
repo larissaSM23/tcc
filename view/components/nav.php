@@ -6,6 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="myNavbar">
             <?php
+
             $_SESSION['status'];
             $opcao = basename($_SERVER["SCRIPT_FILENAME"], '.php');
             include('.././controller/nav/nav.php');
@@ -13,8 +14,8 @@
             <ul class="navbar-nav ms-auto mt-2">
                 <li class="nav-item ms-auto">
                     <a href="./../controller/logout" class="nav-link menu-item">
-                    <i class="fa-solid fa-user" style="font-size: 15px"></i>
-                    <span class="d-inline-block fw-bold h5"><?php echo $_SESSION['session']; ?> </span>
+                        <i class="fa-solid fa-user" style="font-size: 15px"></i>
+                        <span class="d-inline-block fw-bold h5"><?php echo $_SESSION['session']; ?> </span>
                     </a>
                 </li>
             </ul>
@@ -23,5 +24,5 @@
 </nav>
 
 <?php
-include('./components/scripts.php');
+set_include_path('./components/script');
 ?>

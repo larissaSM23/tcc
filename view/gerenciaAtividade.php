@@ -67,6 +67,6 @@ session_start();
         </div>
     </div>
     <?php
-    include('./components/scripts.php');
+    set_include_path('./components/script');
     ?>
 </body>

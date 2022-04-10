@@ -32,7 +32,7 @@ $insert = "insert tb_disciplina (nome,imagem,chave_acesso,id_professor) values (
 
 $query = mysqli_query($connection, $insert);
 
-header("location: ../view/gerenciaDisciplina");
+header("location: ../view/visaoGeral");
 
 }else{
     echo 'Professor não encontrado';

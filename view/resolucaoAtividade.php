@@ -10,10 +10,22 @@ session_start();
     include('./components/nav.php')
     ?>
 <div class="container d-flex flex-column min-vh-100 justify-content-center">
-    <div class="bg-pink rounded p-3 mb-3 mx-2">
-        <span class="fw-bold mx-4">Português</span>
-    </div>
+    <?php
+    if(isset($_GET['id'])){
+        $id_pagina = ($_GET['id']);
+        $select_disciplina = "select a.nome as nome_atividade,b.id, b.nome as nome_disciplina from tb_atividade a,tb_disciplina b where a.id_disciplina=b.id and a.id='$id_pagina';";
+        $query_disciplina = mysqli_query($connection,$select_disciplina);
+        while($linha = mysqli_fetch_array($query_disciplina)){
+        // $id_disciplina = $linha['id_disciplina'];
+        $nome_disciplina =$linha['nome_disciplina'];
+        $nome_atividade =$linha['nome_atividade'];
+        }
 
+    ?>
+    <div class="bg-pink rounded p-3 mb-3 mx-2">
+        <span class="fw-bold mx-4"><?php echo $nome_disciplina ?> - <?php echo $nome_atividade ?></span>
+    </div>
+<?php  } ?>
     <?php
         if(isset($_GET['id'])){
             $id_pagina = ($_GET['id']);
@@ -82,7 +94,7 @@ session_start();
         ?>
 </div>
 <?php
-include('./components/scripts.php');
+include('./components/scripts');
 ?>
 
 </body>

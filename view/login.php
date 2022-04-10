@@ -60,7 +60,7 @@ include('./components/head.php');
     <div class="circle"></div>
 
     <?php
-    include('./components/scripts.php');
+include('./components/scripts');
     ?>
 
 </html>

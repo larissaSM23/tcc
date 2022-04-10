@@ -35,7 +35,7 @@ if($_POST['tipo'] == 'a'){
     $email = $_POST['email'];
     $cpf = $_POST['cpf'];
     $senha = md5($_POST['senha']);
-    $matricula =  uniqid('');
+    $matricula = random_int(100000,999999);
 
     $insert = "insert tb_professor (nome,email,cpf,senha,matricula) values ('$nome','$email','$cpf','$senha','$matricula');";
 

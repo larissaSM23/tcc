@@ -10,7 +10,10 @@ session_start();
     include('./components/nav.php')
     ?>
 <div class="container d-flex flex-column min-vh-100 justify-content-center">
-        <?php $select = "select id,nome from tb_atividade";
+    <?php 
+    if(isset($_GET['id'])){
+    $id_pagina = ($_GET['id']);
+    $select = "select id,nome from tb_atividade where id_disciplina='$id_pagina'";
         $query = mysqli_query($connection, $select);
         
         while($linha = mysqli_fetch_array($query)){
@@ -31,6 +34,7 @@ session_start();
     </div>  
 
     <?php
-    include('./components/scripts.php');
+    }
+include('./components/scripts.php');
     ?>
 </body>

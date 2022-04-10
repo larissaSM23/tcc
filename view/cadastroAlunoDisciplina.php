@@ -54,6 +54,6 @@ session_start();
 </div>
 
     <?php
-    include('./components/scripts.php');
+    set_include_path('./components/script');
     ?> 
 </body>

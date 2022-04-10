@@ -8,10 +8,9 @@ session_start();
 <body>
     <?php
     include('./components/nav.php');
-
-    if($_SESSION['status'] == 'aluno' || 'professor'){
+    if ($_SESSION['status'] == 'aluno') {
         header('Location: visaoGeral');
-    } elseif($_SESSION['status'] == 'responsavel'){
+    } elseif ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
     }
     ?>
@@ -63,7 +62,7 @@ session_start();
                                             echo "<th>" . $row['matricula'] . "</th>";
                                             echo "<th>" . $row['nome'] . "</th>";
                                             echo "<th>" . $row['email'] . "</th>";
-                                            echo "<th><a class='mx-1' href='../controller/editaAluno.php?id=$id'>Editar</a><a href='../controller/excluiAluno.php?id=$id'>Excluir</a></th>";
+                                            echo "<th><a class='mx-1' href='../controller/editaAluno.php?id=$id'><i class='fa-solid fa-pen-to-square'></a><a href='../controller/excluiAluno.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -86,10 +85,10 @@ session_start();
                                     <thead>
                                         <tr>
                                             <th>
-                                                Nome
+                                                Matrícula
                                             </th>
                                             <th>
-                                                Matrícula
+                                                Nome
                                             </th>
                                             <th>
                                                 Email
@@ -105,16 +104,15 @@ session_start();
                                         <?php
 
 
-                                        $select = "select id,nome,matricula,email from tb_professor";
+                                        $select = "select id,matricula,nome,email from tb_professor";
                                         $query  = mysqli_query($connection, $select);
                                         while ($row = mysqli_fetch_array($query)) {
                                             $id = $row["id"];
                                             echo "<tr>";
-                                            echo "<th>" . $row['nome'] . "</th>";
                                             echo "<th>" . $row['matricula'] . "</th>";
+                                            echo "<th>" . $row['nome'] . "</th>";
                                             echo "<th>" . $row['email'] . "</th>";
-                                            echo "<th><a class='mx-1' href='../controller/editaProfessor.php?id=$id'>Editar</a><a href='../controller/excluiProfessor.php?id=$id'>Excluir</a></th>";
-                                            echo "</tr>";
+                                            echo "<th> <a class='mx-1' href='../controller/editaProfessor.php?id=$id'><i class='fa-solid fa-pen-to-square'></i></a><a href='../controller/excluiProfessor.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
                                         }
                                         ?>
                                     </tbody>
@@ -160,7 +158,53 @@ session_start();
                                             echo "<tr>";
                                             echo "<th>" . $row['nome'] . "</th>";
                                             echo "<th>" . $row['email'] . "</th>";
-                                            echo "<th><a class='mx-1' href='../controller/editaResponsavel.php?id=$id'>Editar</a><a href='../controller/excluiResponsavel.php?id=$id'>Excluir</a></th>";
+                                            echo "<th><a class='mx-1' href='../controller/editaResponsavel.php?id=$id'><i class='fa-solid fa-pen-to-square'></a><a href='../controller/excluiResponsavel.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-2 rounded" style="background-color: #e4e4e4">
+                    <div class="py-3 mx-5">
+                        <span>Administradores</span>
+                        <a class="link-dark link-underline-none dropdown-toggle float-end h3" data-toggle="collapse" href="#" role="button" data-target="#admin"></a>
+
+                        <div class="collapse" id="admin">
+                            <div class="card card-body mt-3" style="background-color: #e4e4e4">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Nome
+                                            </th>
+                                            <th>
+                                                Email
+                                            </th>
+                                            <th>
+                                                Ações
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        <?php
+
+
+                                        $select = "select id,nome,email from tb_admin";
+                                        $query  = mysqli_query($connection, $select);
+                                        while ($row = mysqli_fetch_array($query)) {
+                                            $id = $row["id"];
+                                            echo "<tr>";
+                                            echo "<th>" . $row['nome'] . "</th>";
+                                            echo "<th>" . $row['email'] . "</th>";
+                                            echo "<th><a class='mx-1' href='../controller/editaAdmin.php?id=$id'><i class='fa-solid fa-pen-to-square'></i></a><a href='../controller/excluiAdmin.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -179,7 +223,7 @@ session_start();
         </div>
     </div>
     <?php
-        include('./components/scripts.php');
+    set_include_path('./components/script');
     ?>
 
 </body>

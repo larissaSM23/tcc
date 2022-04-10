@@ -13,6 +13,8 @@ include('./components/head.php');
     <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
 
 <?php
+    $id_pagina= $_SESSION['id'];
+
     if($_SESSION['status'] == 'admin'){
     $disciplina_select = "select * from tb_disciplina";
     $query = mysqli_query($connection, $disciplina_select);
@@ -35,7 +37,7 @@ include('./components/head.php');
 <?php
         } 
     }elseif($_SESSION['status'] == 'aluno'){
-    $disciplina_select = "select c.nome as nome_disciplina,c.imagem as imagem_disciplina, c.id as id_disciplina from tb_disciplina_aluno a, tb_aluno b, tb_disciplina c where a.id_aluno=b.id and a.id_disciplina=c.id;";
+    $disciplina_select = "select c.nome as nome_disciplina,c.imagem as imagem_disciplina, c.id as id_disciplina from tb_disciplina_aluno a, tb_aluno b, tb_disciplina c where a.id_aluno=b.id and a.id_disciplina=c.id and a.id_aluno='$id_pagina';";
     $query = mysqli_query($connection, $disciplina_select);
     while($linha = mysqli_fetch_array($query)){
         $nome_disciplina = $linha['nome_disciplina'];
@@ -46,7 +48,7 @@ include('./components/head.php');
 
             <div class="col">
                 <div class="card h-100">
-                    <img src="<?php echo $imagem_disciplina; ?>" class="card-img-top" height=200px width=20%>
+                    <img src="../public/img/<?php echo $imagem_disciplina; ?>" class="card-img-top" height=200px width=20%>
                     <div class="card-body">
                         <h5 class="card-title text-center mb-5 fw-bold"><?php echo $nome_disciplina; ?></h5>
                         <a href="menuDisciplina?id=<?php echo $id_disciplina ?>" id="visao-geral-1" class="d-flex justify-content-center btn btn-primary fw-bold border-white" style="background-color: #115D8C" data-content="Clique aqui para acessar a disciplina" rel="popover" data-placement="left" data-trigger="hover">Acessar</a>
@@ -57,7 +59,6 @@ include('./components/head.php');
 
 <?php
     }}elseif($_SESSION['status'] == 'professor'){
-        $id_pagina= $_SESSION['id'];
         $disciplina_select = "select * from tb_disciplina where id_professor='$id_pagina'";
         $query = mysqli_query($connection, $disciplina_select);
         while($linha = mysqli_fetch_array($query)){
@@ -78,7 +79,6 @@ include('./components/head.php');
 
 <?php
 }}else{
-        print_r($_SESSION['status']);
         echo "<span>teste</span>";
     }
 include('./components/scripts.php');

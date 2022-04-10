@@ -52,7 +52,7 @@ session_start();
     </div>
 
     <?php
-    include('./components/scripts.php');
+    include('./components/scripts');
     ?>
 
 </body>

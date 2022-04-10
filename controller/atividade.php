@@ -28,4 +28,4 @@ $insert = "insert tb_atividade (nome,enunciado,op_a,op_b,op_c,op_d,op_correta,id
 
 $query = mysqli_query($connection, $insert);
 
-header("location: ../view/menuDisciplina");
+header("location: ../view/visaoGeral");

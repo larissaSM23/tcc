@@ -10,7 +10,7 @@ session_start();
     include('./components/nav.php');
     include('../model/database.php');
 
-    if($_SESSION['status'] == 'aluno' || 'professor'){
+    if($_SESSION['status'] == 'aluno' ||  $_SESSION['status'] == 'professor'){
         header('Location: visaoGeral');
     } elseif($_SESSION['status'] == 'responsavel'){
         header('Location: alunosVinculados');
@@ -33,6 +33,7 @@ session_start();
                         $select = "select id,nome from tb_disciplina";
                         $query = mysqli_query($connection,$select);
 ?>
+
 
 
                         <a class="link-dark link-underline-none dropdown-toggle float-end h3" data-toggle="collapse" href="#" role="button" data-target="#discipline"></a>
@@ -74,6 +75,6 @@ session_start();
     </div>
 
     <?php
-    include('./components/scripts.php');
+    set_include_path('./components/script');
     ?>
 </body>

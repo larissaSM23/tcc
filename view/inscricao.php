@@ -46,7 +46,7 @@ session_start();
 <?php } ?>
 
 <?php
-include('./components/scripts.php');
+include('./components/scripts');
 ?>
 
 
