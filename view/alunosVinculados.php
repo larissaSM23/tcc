@@ -1,12 +1,15 @@
 <?php
 $title = "Alunos Vinculados";
 include('./components/head.php');
-session_start();
 ?>
 
 <body>
 <?php
     include('./components/nav.php');
+
+    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
+        header('Location: visaoGeral');
+    }
     ?> 
 <title>Estudantes Vinculados</title>
 
@@ -33,6 +36,6 @@ session_start();
 </div>
 
 <?php
-include('./components/scripts');
+include('./components/scripts.php');
 ?>
 </body>

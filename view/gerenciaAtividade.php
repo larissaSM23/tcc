@@ -2,18 +2,18 @@
 $title = "Gerenciar Atividades";
 include('./components/head.php');
 include('../model/database.php');
-session_start();
 ?>
 
 <body>
     <?php
     include('./components/nav.php');
 
-    if($_SESSION['status'] == 'aluno'){
+    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
         header('Location: visaoGeral');
-    } elseif($_SESSION['status'] == 'responsavel'){
+    } elseif ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
     }
+
     ?>
     <div class="container d-flex flex-column min-vh-100 justify-content-center">
         <div>
@@ -53,7 +53,7 @@ session_start();
                             echo "<th>" . $row['nome'] . "</th>";
                             echo "<th>" . $row['enunciado'] . "</th>";
                             echo "<th>" . $row['op_correta'] . "</th>";
-                            echo "<th><a class='mx-1' href='../controller/editaAtividade.php?id=$id'>Editar</a><a href='../controller/excluiAtividade?id=$id'>Excluir</a></th>";
+                            echo "<th><a class='mx-1' href='../controller/editaAtividade.php?id=$id'><i class='fa-solid fa-pen-to-square'></i></a><a href='../controller/excluiAtividade?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
                             echo "</tr>";
                         }
                         ?>

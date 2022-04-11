@@ -2,13 +2,12 @@
 $title = "Gerencia Usuários";
 include('./components/head.php');
 include('../model/database.php');
-session_start();
 ?>
 
 <body>
     <?php
     include('./components/nav.php');
-    if ($_SESSION['status'] == 'aluno') {
+    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
         header('Location: visaoGeral');
     } elseif ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
@@ -62,7 +61,7 @@ session_start();
                                             echo "<th>" . $row['matricula'] . "</th>";
                                             echo "<th>" . $row['nome'] . "</th>";
                                             echo "<th>" . $row['email'] . "</th>";
-                                            echo "<th><a class='mx-1' href='../controller/editaAluno.php?id=$id'><i class='fa-solid fa-pen-to-square'></a><a href='../controller/excluiAluno.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
+                                            echo "<th><a class='mx-1' href='../controller/editaAluno.php?id=$id'><i class='fa-solid fa-pen-to-square'></i></a><a href='../controller/excluiAluno.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -158,7 +157,7 @@ session_start();
                                             echo "<tr>";
                                             echo "<th>" . $row['nome'] . "</th>";
                                             echo "<th>" . $row['email'] . "</th>";
-                                            echo "<th><a class='mx-1' href='../controller/editaResponsavel.php?id=$id'><i class='fa-solid fa-pen-to-square'></a><a href='../controller/excluiResponsavel.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
+                                            echo "<th><a class='mx-1' href='../controller/editaResponsavel.php?id=$id'><i class='fa-solid fa-pen-to-square'></i></a><a href='../controller/excluiResponsavel.php?id=$id'><i class='fa-solid fa-trash-can'></i></a></th>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -223,7 +222,7 @@ session_start();
         </div>
     </div>
     <?php
-    set_include_path('./components/script');
+    include('./components/scripts.php');
     ?>
 
 </body>

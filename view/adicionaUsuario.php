@@ -1,12 +1,17 @@
 <?php
 $title = "Inserir Usuário";
 include('./components/head.php');
-session_start();
 ?>
 
 <body>
     <?php
     include('./components/nav.php');
+
+    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
+        header('Location: visaoGeral');
+    } elseif ($_SESSION['status'] == 'responsavel') {
+        header('Location: alunosVinculados');
+    }
     ?>
     <div class="container d-flex flex-column min-vh-100 justify-content-center">
         <div>
@@ -83,7 +88,7 @@ session_start();
     </div>
 
     <?php
-    set_include_path('./components/script');
+    include('./components/scripts.php');
     ?>
     <script src="../public/js/home_adm.js"></script>
 </body>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 $title = "Visão Geral";
 include('./components/head.php');
 ?>

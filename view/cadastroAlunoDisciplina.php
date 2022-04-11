@@ -1,12 +1,17 @@
 <?php
 $title = "Cadastrar Aluno em Disciplina";
 include('./components/head.php');
-session_start();
 ?>
 
 <body>
 <?php
-    include('./components/nav.php')
+    include('./components/nav.php');
+
+    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
+        header('Location: visaoGeral');
+    } elseif ($_SESSION['status'] == 'responsavel') {
+        header('Location: alunosVinculados');
+    }
     ?>
 <div class="container d-flex flex-column min-vh-100 justify-content-center">
     <div>
