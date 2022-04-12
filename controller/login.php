@@ -84,5 +84,3 @@
         window.location.href="../view/login?erro";
         </script>';
     }
-
-    

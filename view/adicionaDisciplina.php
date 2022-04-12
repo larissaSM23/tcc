@@ -1,12 +1,17 @@
 <?php
 $title = "Inserir Disciplina";
 include('./components/head.php');
-?>
+include('../model/database.php')
+;?>
 
 <body>
     <?php
     include('./components/nav.php');
-
+    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
+        header('Location: visaoGeral');
+    } elseif ($_SESSION['status'] == 'responsavel') {
+        header('Location: alunosVinculados');
+    }
     ?>
     <div class="container d-flex flex-column min-vh-100 justify-content-center">
         <div>
@@ -38,6 +43,25 @@ include('./components/head.php');
                                 <div>
                                     <label for="option-3" class="my-2">Adicione uma imagem</label>
                                     <input type="file" accept="image/*" class="form-control border-secondary" name="imagem_disciplina" id="imagem_disciplina">
+                                </div>
+                            </div>
+                            <div class="col-md mx-4">
+                                <div>
+                                    <label for="option-3" class="my-2">Selecione um Professor</label>
+                                    <select name="professor" id="setor" class="form-control shadow-sm">
+                                    <option value="null">Selecione</option>
+                                    <?php
+
+
+                                    $select = "SELECT id, nome from tb_professor;";
+                                    $query  = mysqli_query($connection, $select);
+                                    while ($row = mysqli_fetch_array($query)) {
+                                    ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['nome']; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
                                 </div>
                             </div>
                             <div class="col-md mx-4">

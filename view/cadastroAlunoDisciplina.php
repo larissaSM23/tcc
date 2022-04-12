@@ -28,7 +28,7 @@ include('./components/head.php');
                                 <select class="form-select border-0 border-bottom border-secondary" name="aluno_matricula" id="aluno_matricula">
                                     <?php
                                     while($linha = mysqli_fetch_array($aluno_query)){?>
-                                        <option value="<?php echo $linha['id_aluno']; ?>"><?php echo $linha['matricula']; ?></option>
+                                        <option value="<?php echo $linha['id_aluno']; ?>"><?php echo $linha['matricula']; ?> - <?php echo $linha['nome']; ?></option>
                                     <?php } ?>
                                     ?>
                                 </select>

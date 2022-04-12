@@ -50,7 +50,7 @@ include('./components/head.php');
                     <img src="../public/img/<?php echo $imagem_disciplina; ?>" class="card-img-top" height=200px width=20%>
                     <div class="card-body">
                         <h5 class="card-title text-center mb-5 fw-bold"><?php echo $nome_disciplina; ?></h5>
-                        <a href="menuDisciplina?id=<?php echo $id_disciplina ?>" id="visao-geral-1" class="d-flex justify-content-center btn btn-primary fw-bold border-white" style="background-color: #115D8C" data-content="Clique aqui para acessar a disciplina" rel="popover" data-placement="left" data-trigger="hover">Acessar</a>
+                        <a href="inscricao?id=<?php echo $id_disciplina ?>" id="visao-geral-1" class="d-flex justify-content-center btn btn-primary fw-bold border-white" style="background-color: #115D8C" data-content="Clique aqui para acessar a disciplina" rel="popover" data-placement="left" data-trigger="hover">Acessar</a>
                     </div>
                 </div>
             </div>

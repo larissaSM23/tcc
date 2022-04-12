@@ -2,7 +2,7 @@
 $title = "Editar Disciplina";
 include('../view/components/head.php');
 include("../model/database.php");
-session_start();
+
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 ?>
 

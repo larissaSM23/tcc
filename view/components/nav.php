@@ -15,7 +15,7 @@
                 <li class="nav-item ms-auto">
                     <a href="./../controller/logout" class="nav-link menu-item">
                         <i class="fa-solid fa-user" style="font-size: 15px"></i>
-                        <span class="d-inline-block fw-bold h5"><?php echo $_SESSION['session']; ?> </span>
+                        <span class="d-inline-block fw-bold h5" id="menu-disciplina-4" data-content="Clique aqui para sair" rel="popover" data-placement="right" data-trigger="hover"><?php echo $_SESSION['session']; ?> </span>
                     </a>
                 </li>
             </ul>

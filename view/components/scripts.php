@@ -17,6 +17,7 @@
     $('#menu-disciplina-2').popover();
     $('#menu-disciplina-3').popover();
     $('#menu-disciplina-4').popover();
+    $('#menu-disciplina-5').popover();
     $('#notas-1').popover();
     $('#notas-2').popover();
     $('#notas-3').popover();

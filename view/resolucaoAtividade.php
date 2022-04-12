@@ -10,6 +10,8 @@ include('../model/database.php');
 
     if ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
+    } elseif($_SESSION['status'] == 'admin') {
+        header('Location: visaoGeral');
     }
 
     ?>
@@ -17,10 +19,10 @@ include('../model/database.php');
         <?php
         if (isset($_GET['id'])) {
             $id_pagina = ($_GET['id']);
-            $select_disciplina = "select a.nome as nome_atividade,b.id, b.nome as nome_disciplina from tb_atividade a,tb_disciplina b where a.id_disciplina=b.id and a.id='$id_pagina';";
+            $select_disciplina = "select a.nome as nome_atividade,b.id as id_disciplina, b.nome as nome_disciplina from tb_atividade a,tb_disciplina b where a.id_disciplina=b.id and a.id='$id_pagina';";
             $query_disciplina = mysqli_query($connection, $select_disciplina);
             while ($linha = mysqli_fetch_array($query_disciplina)) {
-                // $id_disciplina = $linha['id_disciplina'];
+                $id_disciplina = $linha['id_disciplina'];
                 $nome_disciplina = $linha['nome_disciplina'];
                 $nome_atividade = $linha['nome_atividade'];
             }
@@ -51,7 +53,7 @@ include('../model/database.php');
 
                 if ($id == $id_pagina) {
             ?>
-                    <form action="../controller/resolucaoAtividade" method="post">
+                    <form action="../controller/resolucaoAtividade?id=<?php echo $id_disciplina; ?>" method="post">
                         <div class="rounded p-4 mb-3 mx-2" style="background-color: #e4e4e4">
                             <div class="row">
                                 <div class="col-5 mx-4">
@@ -101,7 +103,7 @@ include('../model/database.php');
         ?>
     </div>
     <?php
-    include('./components/scripts');
+    include('./components/scripts.php');
     ?>
 
 </body>

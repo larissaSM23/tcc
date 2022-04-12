@@ -4,18 +4,18 @@ if ($_SESSION['status'] == 'aluno') {
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/notas" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Notas</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-1" data-content="Clique aqui para acessar suas notas" rel="popover" data-placement="right" data-trigger="hover">Notas</span>
                 </a>
             </li>
 
             <li class="nav-item ms-auto">
                 <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Historico de Atividades</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-2" data-content="Clique aqui para acessar suas atividades feitas" rel="popover" data-placement="right" data-trigger="hover">Historico de Atividades</span>
                 </a>
             </li>
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-3" data-content="Clique aqui para voltar ao menu das disciplinas" rel="popover" data-placement="right" data-trigger="hover">Visão Geral</span>
                 </a>
             </li>
         </ul>
@@ -24,24 +24,18 @@ if ($_SESSION['status'] == 'aluno') {
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/notas" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Notas</span>
-                </a>
-            </li>
-
-            <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-1" data-content="Clique aqui para acessar suas notas" rel="popover" data-placement="right" data-trigger="hover">Notas</span>
                 </a>
             </li>
 
             <li class="nav-item ms-auto">
                 <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Historico de Atividades</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-2" data-content="Clique aqui para acessar suas atividades feitas" rel="popover" data-placement="right" data-trigger="hover">Historico de Atividades</span>
                 </a>
             </li>
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-3" data-content="Clique aqui para voltar ao menu das disciplinas" rel="popover" data-placement="right" data-trigger="hover">Visão Geral</span>
                 </a>
             </li>
         </ul>
@@ -49,19 +43,13 @@ if ($_SESSION['status'] == 'aluno') {
     <?php } elseif ($opcao == 'notas') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
-                </a>
-            </li>
-
-            <li class="nav-item ms-auto">
                 <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Historico de Atividades</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-2" data-content="Clique aqui para acessar suas atividades feitas" rel="popover" data-placement="right" data-trigger="hover">Historico de Atividades</span>
                 </a>
             </li>
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-3" data-content="Clique aqui para voltar ao menu das disciplinas" rel="popover" data-placement="right" data-trigger="hover">Visão Geral</span>
                 </a>
             </li>
         </ul>
@@ -69,19 +57,13 @@ if ($_SESSION['status'] == 'aluno') {
     <?php } elseif ($opcao == 'historico') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
-                </a>
-            </li>
-
-            <li class="nav-item ms-auto">
                 <a href="../view/notas" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Notas</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-1" data-content="Clique aqui para acessar suas notas" rel="popover" data-placement="right" data-trigger="hover">Notas</span>
                 </a>
             </li>
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
+                    <span class="d-inline-block fw-bold h5" id="menu-disciplina-3" data-content="Clique aqui para voltar ao menu das disciplinas" rel="popover" data-placement="right" data-trigger="hover">Visão Geral</span>
                 </a>
             </li>
         </ul>

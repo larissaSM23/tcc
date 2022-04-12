@@ -1,6 +1,6 @@
 <?php
-if($_SESSION['status'] == 'admin'){
-    if($opcao == 'visaoGeral'){?>
+if ($_SESSION['status'] == 'admin') {
+    if ($opcao == 'visaoGeral') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaUsuario" class="nav-link menu-item">
@@ -23,8 +23,8 @@ if($_SESSION['status'] == 'admin'){
                 </a>
             </li>
         </ul>
-    
-        <?php } elseif($opcao == 'gerenciaUsuario'){?>
+
+    <?php } elseif ($opcao == 'gerenciaUsuario') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaAtividade" class="nav-link menu-item">
@@ -43,7 +43,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'editaAluno'){?>
+    <?php } elseif ($opcao == 'editaAluno') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
@@ -57,7 +57,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'editaAdmin'){?>
+    <?php } elseif ($opcao == 'editaAdmin') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
@@ -71,7 +71,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'editaProfessor'){?>
+    <?php } elseif ($opcao == 'editaProfessor') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
@@ -85,7 +85,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'editaResponsavel'){?>
+    <?php } elseif ($opcao == 'editaResponsavel') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
@@ -99,7 +99,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'adicionaUsuario'){?>
+    <?php } elseif ($opcao == 'adicionaUsuario') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaAtividade" class="nav-link menu-item">
@@ -118,7 +118,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'gerenciaAtividade'){?>
+    <?php } elseif ($opcao == 'gerenciaAtividade') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaUsuario" class="nav-link menu-item">
@@ -137,7 +137,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'adicionaAtividade'){?>
+    <?php } elseif ($opcao == 'adicionaAtividade') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaDisciplina" class="nav-link menu-item">
@@ -156,7 +156,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'gerenciaDisciplina'){?>
+    <?php } elseif ($opcao == 'gerenciaDisciplina') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaAtividade" class="nav-link menu-item">
@@ -175,7 +175,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'adicionaDisciplina'){?>
+    <?php } elseif ($opcao == 'adicionaDisciplina') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaAtividade" class="nav-link menu-item">
@@ -194,7 +194,7 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-        <?php } elseif($opcao == 'cadastroAlunoDisciplina'){?>
+    <?php } elseif ($opcao == 'cadastroAlunoDisciplina') { ?>
         <ul class="navbar-nav ms-auto mt-2">
             <li class="nav-item ms-auto">
                 <a href="../view/gerenciaAtividade" class="nav-link menu-item">
@@ -213,105 +213,15 @@ if($_SESSION['status'] == 'admin'){
             </li>
         </ul>
 
-    <?php } elseif($opcao == 'menuDisciplina'){?>
+    <?php } elseif ($opcao == 'menuDisciplina') { ?>
         <ul class="navbar-nav ms-auto mt-2">
-            <li class="nav-item ms-auto">
-                <a href="../view/notas" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Notas</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Histórico de Atividades</span>
-                </a>
-            </li>
             <li class="nav-item ms-auto">
                 <a href="../view/visaoGeral" class="nav-link menu-item">
                     <span class="d-inline-block fw-bold h5">Visão Geral</span>
                 </a>
             </li>
         </ul>
-    
-    <?php } elseif($opcao == 'notas'){?>
-        <ul class="navbar-nav ms-auto mt-2">
-            <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Histórico de Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
-                </a>
-            </li>
-        </ul>
-    
-    <?php } elseif($opcao == 'resolucaoAtividade'){?>
-        <ul class="navbar-nav ms-auto mt-2">
-            <li class="nav-item ms-auto">
-                <a href="../view/notas" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Notas</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Histórico de Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
-                </a>
-            </li>
-        </ul>
-    
-    <?php } elseif($opcao == 'notas'){?>
-        <ul class="navbar-nav ms-auto mt-2">
-            <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/historico" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Histórico de Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
-                </a>
-            </li>
-        </ul>
-    
-    <?php } elseif($opcao == 'historico'){?>
-        <ul class="navbar-nav ms-auto mt-2">
-            <li class="nav-item ms-auto">
-                <a href="../view/menuDisciplina" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Atividades</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/notas" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Notas</span>
-                </a>
-            </li>
-            <li class="nav-item ms-auto">
-                <a href="../view/visaoGeral" class="nav-link menu-item">
-                    <span class="d-inline-block fw-bold h5">Visão Geral</span>
-                </a>
-            </li>
-        </ul>
+
 <?php }
 }
 

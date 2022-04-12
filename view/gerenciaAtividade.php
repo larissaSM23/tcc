@@ -8,7 +8,7 @@ include('../model/database.php');
     <?php
     include('./components/nav.php');
 
-    if ($_SESSION['status'] == 'aluno' || $_SESSION['status'] == 'professor') {
+    if ($_SESSION['status'] == 'aluno') {
         header('Location: visaoGeral');
     } elseif ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
