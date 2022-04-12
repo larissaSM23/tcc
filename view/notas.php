@@ -13,7 +13,7 @@ include('../model/database.php');
         <?php
         if ($_SESSION['status'] == 'admin') {
             header('Location: visaoGeral');
-        }else {
+        } else {
             if ($_SESSION['status'] == 'aluno') {
                 $id_sessao = $_SESSION['id'];
                 $resposta_select = "select b.id as id_atividade, a.nome as nome,b.op_aluno as op_aluno,c.op_correta as op_correta, c.nome as titulo from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id and a.id='$id_sessao';";
@@ -56,9 +56,9 @@ include('../model/database.php');
                                     </td>
                                     <td class="border-0">
                                         <?php if ($op_aluno == $op_atividade) { ?>
-                                            <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">10/10</p>
+                                            <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade ?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">10/10</p>
                                         <?php } else { ?>
-                                            <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
+                                            <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade ?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
                                         <?php } ?>
                                     </td>
                                 </tr>
@@ -106,11 +106,11 @@ include('../model/database.php');
                                             <p class="d-inline-block"><?php echo $titulo; ?></p>
                                         </td>
                                         <td class="border-0">
-                                        <?php if ($op_aluno == $op_atividade) { ?>
-                                            <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">10/10</p>
-                                        <?php } else { ?>
-                                            <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
-                                        <?php } ?>
+                                            <?php if ($op_aluno == $op_atividade) { ?>
+                                                <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade ?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">10/10</p>
+                                            <?php } else { ?>
+                                                <p class="mx-5 d-inline-block" id="notas-<?php echo $id_atividade ?>" data-content="Essa foi a nota que você obteve nesta atividade" rel="popover" data-placement="right" data-trigger="hover">0/10</p>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -136,26 +136,30 @@ include('../model/database.php');
         $('#menu-disciplina-4').popover();
     </script>
     <?php
-    
+
     if ($_SESSION['status'] == 'aluno') {
         $id_sessao = $_SESSION['id'];
-    $select = "select b.id as id_atividade from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id and a.id='$id_sessao';";
+        $select = "select b.id as id_atividade from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id and a.id='$id_sessao';";
         $query = mysqli_query($connection, $select);
-        
-        while($linha = mysqli_fetch_array($query)){
+
+        while ($linha = mysqli_fetch_array($query)) {
             $id_atividade = $linha['id_atividade'];
-           ?> 
-    <script>$('#notas-<?php echo $id_atividade?>').popover();</script>
-    <?php
+    ?>
+            <script>
+                $('#notas-<?php echo $id_atividade ?>').popover();
+            </script>
+        <?php
         }
-    }else{
+    } else {
         $id_sessao = $_GET['id'];
         $select = "select b.id as id_atividade from tb_aluno a, tb_aluno_atividade b, tb_atividade c where a.id=b.id_aluno and b.id_atividade=c.id and a.id='$id_sessao';";
         $query = mysqli_query($connection, $select);
-        while($linha = mysqli_fetch_array($query)){
+        while ($linha = mysqli_fetch_array($query)) {
             $id_atividade = $linha['id_atividade'];
-           ?> 
-    <script>$('#notas-<?php echo $id_atividade?>').popover();</script>
+        ?>
+            <script>
+                $('#notas-<?php echo $id_atividade ?>').popover();
+            </script>
     <?php
         }
     }

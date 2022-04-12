@@ -7,7 +7,6 @@ include('.././controller/alunosVinculados.php');
         while($linha = mysqli_fetch_assoc($responsavel_query)){
             $id_aluno = $linha['id'];
             $nome_aluno = $linha['nome'];
-        
         ?>
     <span>
         <?php echo $nome_aluno; ?>

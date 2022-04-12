@@ -19,22 +19,15 @@ include('../model/database.php');
     }
 
     if ($acesso == 0) {
-
-
-
-        //
         if ($_SESSION['status'] == 'responsavel') {
             header('Location: alunosVinculados');
         }
-
     ?>
-
         <?php
         if(isset($_GET['id'])){
         $id_materia = $_GET['id'];
         $select = "select nome,chave_acesso from tb_disciplina where id='$id_materia'";
         $query  = mysqli_query($connection, $select);
-
 
         ?>
         <?php

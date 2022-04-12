@@ -9,7 +9,6 @@ include('./components/head.php');
 
 </head>
 
-
 <body class="" style="background-color: #e4e4e4">
 
     <div class="triangle"></div>
@@ -33,10 +32,6 @@ include('./components/head.php');
                     <div class="input-group mb-4" id="senha-login" data-content="Aqui você deve digitar sua senha" rel="popover" data-placement="bottom" data-trigger="hover">
                         <i class="bi bi-lock input-group-text"></i>
                         <input type="password" class="form-control" required autocomplete="current-password" name="senha" placeholder="Senha" id="senha">
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <a href="insira_um_link_aqui" class="link-dark link-underline-none">Esqueceu a senha?</a>
                     </div>
 
                     <div class="d-flex justify-content-center mt-3">

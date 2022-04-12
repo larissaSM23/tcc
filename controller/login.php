@@ -53,7 +53,6 @@
             $usuario = $linha['nome'];
             $cpf = $linha['cpf'];
             $id = $linha['id'];
-
         }
 
         $_SESSION['session'] = $usuario;

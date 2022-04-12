@@ -10,7 +10,7 @@ include('../model/database.php');
 
     if ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
-    } elseif($_SESSION['status'] == 'admin' || $_SESSION['status'] == 'professor') {
+    } elseif ($_SESSION['status'] == 'admin' || $_SESSION['status'] == 'professor') {
         header('Location: visaoGeral');
     }
 
@@ -38,10 +38,7 @@ include('../model/database.php');
             $select = "select id,nome,enunciado,op_a,op_b,op_c,op_d,op_correta,titulo_imagem from tb_atividade ";
             $query  = mysqli_query($connection, $select);
         ?>
-
-
-
-
+        
             <?php while ($row = mysqli_fetch_array($query)) {
                 $id = $row['id'];
                 $enunciado = $row['enunciado'];

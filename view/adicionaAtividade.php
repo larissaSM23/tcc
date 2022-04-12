@@ -39,7 +39,6 @@ include('./../model/database.php');
                                     <option value="null">Selecione</option>
                                     <?php
 
-
                                     $select = "select id,nome from tb_disciplina";
                                     $query  = mysqli_query($connection, $select);
                                     while ($row = mysqli_fetch_array($query)) {
@@ -49,9 +48,6 @@ include('./../model/database.php');
                                     }
                                     ?>
                                 </select>
-
-
-
 
                                 <div class="row g-2 my-5">
                                     <div class="col-md mx-4 mt-3">
