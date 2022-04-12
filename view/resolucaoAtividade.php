@@ -10,7 +10,7 @@ include('../model/database.php');
 
     if ($_SESSION['status'] == 'responsavel') {
         header('Location: alunosVinculados');
-    } elseif($_SESSION['status'] == 'admin') {
+    } elseif($_SESSION['status'] == 'admin' || $_SESSION['status'] == 'professor') {
         header('Location: visaoGeral');
     }
 
